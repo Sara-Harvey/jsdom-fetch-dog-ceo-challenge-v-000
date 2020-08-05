@@ -36,3 +36,15 @@ function fetchDogBreeds() {
       addBreedSelectListener()
     })
 }
+
+function renderDogBreeds(breeds) {
+  const ul = document.getElementById('dog-breeds')
+
+  for (breed of breeds) {
+    const li = document.createElement('li')
+
+    li.innerText = breed
+    ul.appendChild(li)
+    li.addEventListener('click', changeColor)
+  }
+}
