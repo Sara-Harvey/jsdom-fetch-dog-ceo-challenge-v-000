@@ -13,3 +13,11 @@ function fetchDogPics() {
       }
     })
 }
+
+function renderDogPics(dogPic) {
+  const main = document.getElementById('dog-image-container')
+  const image = document.createElement('img')
+
+  image.src = dogPic
+  main.appendChild(image)
+}
