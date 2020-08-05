@@ -48,3 +48,27 @@ function renderDogBreeds(breeds) {
     li.addEventListener('click', changeColor)
   }
 }
+
+function changeColor(event) {
+  event.target.style.color = 'blue'
+}
+
+function addBreedSelectListener() {
+  const dropDown = document.getElementById('breed-dropdown')
+
+  dropDown.addEventListener('change', updateBreedList)
+}
+
+function updateBreedList(event) {
+  // get the <ul>
+  const breedsList = document.getElementById('dog-breeds')
+  // remove existing <li>
+  breedsList.querySelectorAll('li').forEach(n => n.remove());
+  // update <ul> with breeds that start with event.target.value
+  renderDogBreeds(breeds.filter(breed => breed.startsWith(event.target.value)));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetchDogPics()
+  fetchDogBreeds()
+})
